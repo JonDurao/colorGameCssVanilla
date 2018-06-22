@@ -24,6 +24,7 @@ window.addEventListener('click', event => {
                 document.querySelector('h1').innerHTML = 'You Win!!';
                 deleteWrongColors();
             } else {
+                event.target.style.backgroundColor = '#1f1f1f';
                 event.target.style.visibility = 'hidden';
                 state.colors.splice(state.colors.indexOf(event.target.style.backgroundColor), 1);
 
@@ -38,8 +39,10 @@ window.addEventListener('click', event => {
 
 const deleteWrongColors = () => {
     document.querySelectorAll('.colorSquare').forEach(elem => {
-        if (elem.style.backgroundColor !== state.result)
+        if (elem.style.backgroundColor !== state.result) {
+            elem.style.backgroundColor = '#1f1f1f';
             elem.style.visibility = 'hidden';
+        }
     });
 };
 
